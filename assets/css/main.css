@@ -1,0 +1,117 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.scan__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #111;
+}
+
+.scan__content {
+  position: relative;
+}
+
+.scan__hand {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  background-image: url(../imgs/hand.png);
+  background-size: 500px;
+}
+
+.scan__hand::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../imgs/hand-active.png);
+  background-size: 500px;
+  animation: animate_height 4s ease-in-out infinite;
+}
+
+@keyframes animate_height {
+  0%,
+  100% {
+    height: 0;
+  }
+  50% {
+    height: 100%;
+  }
+}
+
+.scan__hand::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  background-color: #3feeee;
+  filter: drop-shadow(0 0 20px #3feeee) drop-shadow(0 0 80px #3feeee);
+  animation: animate_top 4s ease-in-out infinite;
+}
+
+@keyframes animate_top {
+  0%,
+  100% {
+    top: 0;
+  }
+  50% {
+    top: 100%;
+  }
+}
+
+.scan__lines {
+  position: absolute;
+  inset: 0;
+}
+
+.scan__lines::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  background-image: url(../imgs/lines.png);
+  background-size: 500px;
+  animation: animate_line 4s ease-in-out infinite;
+}
+
+@keyframes animate_line {
+  0%,
+  25%,
+  100% {
+    height: 0;
+  }
+  50% {
+    height: 100%;
+  }
+}
+
+.scan__lines::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  background-image: url(../imgs/points.png);
+  background-size: 500px;
+  animation: animate_point 4s ease-in-out infinite;
+}
+
+@keyframes animate_point {
+  0%,
+  100% {
+    height: 0;
+  }
+  50% {
+    height: 100%;
+  }
+}
